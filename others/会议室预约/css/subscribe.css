@@ -1,0 +1,161 @@
+.main_wrap{
+	position: absolute;
+	background-color: #F6F6F6;
+	left: 0.0rem;
+	right: 0.0rem;
+	top: 0.0rem;
+	bottom: 0.0rem;
+}
+
+.header{
+	position: relative;
+	width: 100%;
+	height: 2.5rem;
+	font: normal 1.25rem/2.5rem '宋体';
+	color: #FF0036;
+	text-align: center;
+	background-color: #FFFFFF;
+}
+
+form{
+	position: absolute;
+	left: 0.0rem;
+	right: 0.0rem;
+	top: 2.5rem;
+	bottom: 0.0rem;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.form_con{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.content{
+	position: absolute;
+	left: 50%;
+	margin-left: -9.0rem;
+	width: 18.0rem;
+	margin-top: 2.5rem;
+}
+
+.common_input{
+	margin-left: 1.25rem;
+}
+
+.use_input{
+	position: relative;
+	margin-left: 1.25rem;
+	width: 100%;
+	height: 6.0rem;
+}
+
+.conference_room_input{
+	position: relative;
+	margin-left: 1.25rem;
+	width: 100%;
+	height: 2.5rem;
+}
+
+.common_input label{
+	font: bold 0.9rem/2.5rem '宋体';
+	width: 4.5rem;
+}
+
+.use_input label, .conference_room_input .label{
+	font: bold 0.9rem/2.5rem '宋体';
+	width: 4.5rem;
+	position: absolute;
+	top: 0.25rem;
+	left: 0.0rem;
+}
+
+.common_input h2, .use_input h2{
+	display: inline-block;
+}
+
+.common_input input{
+	width: 10.0rem;
+	height: 1.5rem;
+	border: 2px #FF0036 solid;
+	border-radius: 0.5rem;
+	margin-left: 0.5rem;
+	font: normal 0.9rem '宋体';
+	text-indent: 0.9rem;
+}
+
+.use_input textarea{
+	position: absolute;
+	left: 4.5rem;
+	top: 0.5rem;
+	width: 10.0rem;
+	height: 4.5rem;
+	border: 2px #FF0036 solid;
+	border-radius: 0.5rem;
+	margin-left: 0.5rem;
+	font: normal 0.9rem '宋体';
+	text-indent: 0.9rem;
+}
+
+.conference_room{
+	position: absolute;
+	left: 4.5rem;
+	top: 0.5rem;
+	width: 10.0rem;
+	height: 1.5rem;
+	border: 2px #FF0036 solid;
+	border-radius: 0.5rem;
+	margin-left: 0.5rem;
+	font: normal 0.9rem/1.5rem '宋体';
+}
+
+.conference_room h3{
+	text-align: center;
+}
+
+.conference_room ul{
+	margin-top: 0.25rem;
+	position: relative;
+	left: -1.0rem;
+	z-index: 999;
+	background-color: #F6F6F6;
+	width: 12.0rem;
+	height: 12.0rem;
+	border: 2px #3B30A6 solid;
+	border-radius: 0.5rem;
+	font: normal 0.9rem/1.5rem '宋体';
+	overflow-y: auto;
+	overflow-x: hidden;
+	display: none;
+}
+
+.conference_room li{
+	padding: 0.5rem;
+	text-align: center;
+	border-bottom: 1px #3B30A6 solid;
+}
+
+.conference_room li:last-child{
+	padding: 0.5rem;
+	text-align: center;
+	border: none;
+}
+
+.error{
+	font: normal 0.9rem '宋体';
+	color: red;
+	text-align: center;
+}
+
+.submit{
+	display: block;
+	margin: 2.5rem auto 2.5rem;
+	width: 10.0rem;
+	height: 2.5rem;
+	background-color: #FF0036;
+	font: normal 0.9rem/2.5rem '宋体';
+	color: #FFFFFF;
+	border-radius: 0.5rem;
+}

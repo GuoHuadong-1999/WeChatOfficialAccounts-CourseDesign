@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ChangeEmail</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="js/set_root.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/email.css">
+	<script type="text/javascript">
+		$(function(){
+			$("#email").focus(function(event) {
+				$(this).prop("placeholder","");
+			}).blur(function(event) {
+				$(this).prop("placeholder","请输入新的电子邮箱");
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="main_wrap">
+		<div class="header">
+			<h1>修改电子邮箱</h1>
+		</div>
+		<form method="post">
+			<div class="content">
+				<div class="common_input">
+					<label for="email"><h2>电子邮箱:</h2></label>
+					<input type="text" name="email" id="email" placeholder="请输入新的电子邮箱">
+				</div>
+				<input type="submit" class="submit" value="确认">
+			</div>
+		</form>
+	</div>
+</body>
+</html>

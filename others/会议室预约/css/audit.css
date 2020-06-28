@@ -1,0 +1,202 @@
+.main_wrap{
+	position: absolute;
+	background-color: #F6F6F6;
+	left: 0.0rem;
+	right: 0.0rem;
+	top: 0.0rem;
+	bottom: 0.0rem;
+}
+
+.header{
+	position: relative;
+	width: 100%;
+	height: 2.5rem;
+	font: normal 1.25rem/2.5rem '宋体';
+	color: #FF0036;
+	text-align: center;
+	background-color: #FFFFFF;
+}
+
+.center_con{
+	position: absolute;
+	left: 0.0rem;
+	right: 0.0rem;
+	top: 2.5rem;
+	bottom: 0.0rem;
+	
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.content{
+	position: absolute;
+	left: 50%;
+	margin-left: -9.0rem;
+	width: 18.0rem;
+	margin-top: 0.5rem;
+}
+
+.subscribes{
+	padding-bottom: 1.0rem;
+}
+
+.subscribe{
+	background-color: #FFFFFF;
+	border-radius: 1.0rem;
+	font: normal 0.9rem '宋体';
+	margin-top: 1.0rem;
+}
+
+.title, .common{
+	padding: 0.5rem 0;
+}
+
+.title{
+	margin-left: 0.9rem;
+	margin-right: 0.9rem;
+	border-bottom: 1px #B2B2B2 solid;
+}
+
+.common{
+	margin-left: 1.8rem;
+	margin-right: 1.8rem;
+}
+
+.title h2{
+	float: left;
+	color: green;
+}
+
+.title h3{
+	float: left;
+	color: #000000;
+}
+
+.common h2{
+	float: left;
+	color: #000000;
+}
+
+.common h3{
+	float: right;
+	color: #B2B2B2;
+}
+
+.common p{
+	float: right;
+	width: 10.0rem;
+	float: right;
+	color: #B2B2B2;
+	text-indent: 1.8rem;
+}
+
+.buttons_con{
+	position: relative;
+	width: 100%;
+	height: 4.5rem;
+}
+
+.buttons{
+	position: absolute;
+	width: 16.0rem;
+	height: 2.5rem;
+	left: 50%;
+	top: 50%;
+	margin-left: -8.0rem;
+	margin-top: -1.25rem;
+}
+
+.left{
+	float: left;
+	margin-left: 1.0rem;
+	background-color: green;
+}
+
+.right{
+	float: right;
+	margin-right: 1.0rem;
+	background-color: #FF0036;
+}
+
+.left, .right{
+	width: 6.0rem;
+	height: 2.5rem;
+	font: normal 0.9rem/2.5rem '宋体';
+	color: #FFFFFF;
+	border-radius: 0.5rem;
+}
+
+@keyframes loading{
+	
+	from{
+		transform:scale(1,1);
+	}
+
+	to{
+		transform:scale(1,0.5);
+	}
+}
+
+.shadow{
+	position: absolute;
+	background-color:rgba(0,0,0,0.5);
+	left: 0.0rem;
+	right: 0.0rem;
+	top: 0.0rem;
+	bottom: 0.0rem;
+	z-index: 998;
+}
+
+.shadow_content{
+	background-color: #F6F6F6;
+	position: absolute;
+	width: 15.0rem;
+	height: 7.9rem;
+	border: 2px #FF0036 solid;
+	left: 50%;
+	top: 50%;
+	margin-left: -7.5rem;
+	margin-top: -3.95rem;
+	z-index: 999;
+	border-radius: 0.5rem;
+}
+
+.shadow_content div{
+	width: 1.5rem;
+	height: 5.0rem;
+	float: left;
+	background-color: gold;
+	margin: 0.75rem;
+	border-radius: 0.75rem;
+	animation: loading 500ms ease infinite alternate;
+}
+
+.shadow_content div:nth-child(1){
+	background-color: red;
+}
+
+.shadow_content div:nth-child(2){
+	background-color: green;
+	animation-delay: 100ms;
+}
+
+.shadow_content div:nth-child(3){
+	background-color: pink;
+	animation-delay: 200ms;
+}
+
+.shadow_content div:nth-child(4){
+	background-color: lightgreen;
+	animation-delay: 300ms;
+}
+
+.shadow_content div:nth-child(5){
+	background-color: lightblue;
+	animation-delay: 400ms;
+}
+
+.shadow_content p{
+	text-align: center;
+	font: normal 0.9rem '宋体';
+	color: green;
+}
