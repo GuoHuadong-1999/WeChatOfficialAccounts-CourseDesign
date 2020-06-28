@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ConferenceRoomCondition</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/conference_room_condition.css">
+	<script src="/static/js/jquery-3.5.1.js" type="text/javascript"></script>
+	<script src="/static/js/set_root.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".conference_room h3").click(function(){
+				$(".conference_room ul").stop().fadeToggle(500);
+			});
+			$(".conference_room li").click(function() {
+				var val = $(this).text();
+				var index = $(this).attr("val");
+				$(".conference_room h3").text(val);
+				$(".conference_room ul").stop().fadeToggle(500);
+				
+				$("#conference_room_id").val(index);
+				$("form").submit();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="main_wrap">
+		<div class="header">
+			<h1>查询会议室状态</h1>
+		</div>
+		<div class="center_con">
+			<div class="content">
+				<div class="conference_room_input">
+					<div class="label"><h2>会议地点:</h2></div>
+					<div class="conference_room">
+						<h3>---请选择会议室---</h3>
+						<ul>
+							{% for conference_room in conference_rooms %}
+							<li val="{{ conference_room.id }}"><h4>{{ conference_room.conference_room }}</h4></li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+				<div class="conditions">
+					{% for subscribe in subscribes %}
+					<div class="condition">
+						<div class="title clearfix">
+							<h2>订单号:</h2>
+							<h3>{{ subscribe.subscribe_id }}</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议地点:</h2>
+							<h3>{{ conference_room.conference_room }}</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议标题:</h2>
+							<h3>{{ subscribe.title }}</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>开始时间:</h2>
+							<h3>{{ subscribe.begin_time }}</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>结束时间:</h2>
+							<h3>{{ subscribe.end_time }}</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议人数:</h2>
+							<h3>{{ subscribe.people_number }}</h3>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<form method="post" novalidate action="{{ url_for('app_conference_room.select_conference_room_condition') }}">
+			{{ form.csrf_token }}
+			{{ form.conference_room_id }}
+		</form>
+	</div>
+</body>
+</html>

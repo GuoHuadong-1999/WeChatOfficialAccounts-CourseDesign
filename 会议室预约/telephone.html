@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ChangeTelephone</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="js/set_root.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/telephone.css">
+	<script type="text/javascript">
+		$(function(){
+			$("#telephone").focus(function(event) {
+				$(this).prop("placeholder","");
+			}).blur(function(event) {
+				$(this).prop("placeholder","请输入新的电话号码");
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="main_wrap">
+		<div class="header">
+			<h1>修改电话号码</h1>
+		</div>
+		<form method="post">
+			<div class="content">
+				<div class="common_input">
+					<label for="telephone"><h2>电话号码:</h2></label>
+					<input type="text" name="telephone" id="telephone" placeholder="请输入新的电话号码">
+					<div class="error"><h3>对不起，您填写的信息有误！</h3></div>
+					<div class="error"><h3>对不起，您填写的信息有误！</h3></div>
+				</div>
+				<input type="submit" class="submit" value="确认">
+			</div>
+		</form>
+	</div>
+</body>
+</html>

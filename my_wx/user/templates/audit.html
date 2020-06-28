@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AuditSubscribe</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script type="text/javascript" src="/static/js/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="/static/js/set_root.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/audit.css">
+	<script type="text/javascript">
+		$(function(){
+			$(".left").click(function(){
+				$(".shadow").show();
+				var subscribe = $(this).parent().parent().parent();
+				var subscribe_id = subscribe.attr("val");
+
+				var data = {
+					subscribe_id:subscribe_id,
+					option:1
+				};
+
+				var req_json = JSON.stringify(data);
+
+				$.ajax({
+					url:'{{ url_for("app_user.audit") }}',
+					type:"post",
+					data:req_json,
+					contentType:"application/json",
+					dataType:"json",
+					success:function(data){
+						if(data.code==1){
+							subscribe.remove();
+							$(".shadow").hide();
+						}
+					}
+				});
+			});
+
+			$(".right").click(function(){
+				$(".shadow").show();
+				var subscribe = $(this).parent().parent().parent();
+				var subscribe_id = subscribe.attr("val");
+
+				var data = {
+					subscribe_id:subscribe_id,
+					option:0
+				};
+
+				var req_json = JSON.stringify(data);
+
+				$.ajax({
+					url:'{{ url_for("app_user.audit") }}',
+					type:"post",
+					data:req_json,
+					contentType:"application/json",
+					dataType:"json",
+					success:function(data){
+						if(data.code==1){
+							subscribe.remove();
+							$(".shadow").hide();
+						}
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="main_wrap">
+		<div class="header">
+			<h1>审核预约</h1>
+		</div>
+		<div class="center_con">
+			<div class="content">
+				<div class="subscribes">
+					{% for index in index_list %}
+					<div class="subscribe" val="{{subscribes[index].id}}">
+						<div class="title clearfix">
+							<h2>预约人-OpenID:</h2>
+							<h3>{{openid_list[index]}}</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议地点:</h2>
+							<h3>{{conference_room_list[index]}}</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议标题:</h2>
+							<h3>{{subscribes[index].title}}</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>开始时间:</h2>
+							<h3>{{subscribes[index].begin_time}}</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>结束时间:</h2>
+							<h3>{{subscribes[index].end_time}}</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议人数:</h2>
+							<h3>{{subscribes[index].people_number}}</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议用途:</h2>
+							<p>{{subscribes[index].use}}</p>
+						</div>
+						<div class="buttons_con">
+							<div class="buttons">
+								<button class="left">同意</button>
+								<button class="right">拒绝</button>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="shadow">
+			<div class="shadow_content">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<p>加载中...</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

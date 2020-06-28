@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>会议室创建</title>
+</head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/reset.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
+<script src="{{ url_for('static',filename='js/jquery-3.5.1.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static',filename='js/set_root.js') }}" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".menu").mousedown(function(event) {
+			$(this).addClass('active').siblings().removeClass('active');
+		});
+		$(".menu").mouseup(function(event) {
+			$(this).removeClass('active');
+		});
+		$(".me").click(function(event) {
+			$(".options").stop().fadeToggle();
+		});
+	});
+</script>
+<body>
+	<div class="main_wrap">
+
+		<div class="header clearfix">
+			<h1>新建会议</h1>
+		</div>
+
+		<div class="center_con">
+			<img alt="头像" src="{{user['headimgurl']}}" width="60">
+			<table>
+				<tr>
+					<th>openid</th>
+					<td>{{user["openid"]}}</td>
+				</tr>
+				<tr>
+					<th>昵称</th>
+					<td>{{user["nickname"]}}</td>
+				</tr>
+				<tr>
+					<th>性别</th>
+					<td>
+						{% if 1 == user["sex"] %}
+							男
+						{% elif 2 == user["sex"] %}
+							女
+						{% else %}
+							未知
+						{% endif %}
+					</td>
+				</tr>
+				<tr>
+					<th>省份</th>
+					<td>{{user["province"]}}</td>
+				</tr>
+				<tr>
+					<th>城市</th>
+					<td>{{user["city"]}}</td>
+				</tr>
+				<tr>
+					<th>国家</th>
+					<td>{{user["country"]}}</td>
+				</tr>
+			</table>
+			<ul class="options">
+				<li class="menu"><a href="#"><h3>管理员申请</h3></a></li>
+				<li class="menu"><a href="#"><h3>审核预约</h3></a></li>
+				<li class="menu"><a href="{{ url_for("app_user.get_user") }}"><h3>我的会议</h3></a></li>
+			</ul>
+		</div>
+
+		<div class="footer">
+			<a href="#" class="menu">
+				<h2>新建会议</h2>
+			</a>
+			<a href="{{ url_for("app_conference_room.get_conference_room") }}" class="menu">
+				<h2>会议室状态</h2>
+			</a>
+			<a href="#" class="menu me">
+				<div></div>
+				<h2>我的</h2>
+			</a>
+		</div>
+	</div>
+</body>
+</html>

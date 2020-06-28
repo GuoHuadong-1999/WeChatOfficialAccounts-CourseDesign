@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ConferenceRoomCondition</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="js/set_root.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/conference_room_condition.css">
+	<script type="text/javascript">
+		$(function(){
+			$(".conference_room h3").click(function(){
+				$(".conference_room ul").stop().fadeToggle(500);
+			});
+			$(".conference_room li").click(function() {
+				var val = $(this).text();
+				var index = $(this).attr("val");
+				$(".conference_room h3").text(val);
+				$(".conference_room ul").stop().fadeToggle(500);
+				$(".conditions").fadeIn(500);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="main_wrap">
+		<div class="header">
+			<h1>查询会议室状态</h1>
+		</div>
+		<div class="center_con">
+			<div class="content">
+				<div class="conference_room_input">
+					<div class="label"><h2>会议地点:</h2></div>
+					<div class="conference_room">
+						<h3>---请选择会议室---</h3>
+						<ul>
+							<li val="0"><h4>逸夫楼100</h4></li>
+							<li val="1"><h4>逸夫楼101</h4></li>
+							<li val="2"><h4>逸夫楼102</h4></li>
+							<li val="3"><h4>逸夫楼103</h4></li>
+							<li val="4"><h4>逸夫楼104</h4></li>
+							<li val="5"><h4>逸夫楼105</h4></li>
+							<li val="6"><h4>逸夫楼106</h4></li>
+							<li val="7"><h4>逸夫楼107</h4></li>
+							<li val="8"><h4>逸夫楼108</h4></li>
+							<li val="9"><h4>逸夫楼109</h4></li>
+							<li val="10"><h4>逸夫楼200</h4></li>
+							<li val="11"><h4>逸夫楼201</h4></li>
+							<li val="12"><h4>逸夫楼202</h4></li>
+							<li val="13"><h4>逸夫楼203</h4></li>
+							<li val="14"><h4>逸夫楼204</h4></li>
+							<li val="15"><h4>逸夫楼205</h4></li>
+						</ul>
+					</div>
+				</div>
+				<div class="conditions">
+					<div class="condition">
+						<div class="title clearfix">
+							<h2>订单号:</h2>
+							<h3>20201212001</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议地点:</h2>
+							<h3>逸夫楼101</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议标题:</h2>
+							<h3>中国梦</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>开始时间:</h2>
+							<h3>2020-05-27 12:00</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>结束时间:</h2>
+							<h3>2020-05-27 13:40</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议人数:</h2>
+							<h3>30</h3>
+						</div>
+					</div>
+					<div class="condition">
+						<div class="title clearfix">
+							<h2>订单号:</h2>
+							<h3>20201212001</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议地点:</h2>
+							<h3>逸夫楼101</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议标题:</h2>
+							<h3>中国梦</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>开始时间:</h2>
+							<h3>2020-05-27 12:00</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>结束时间:</h2>
+							<h3>2020-05-27 13:40</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议人数:</h2>
+							<h3>30</h3>
+						</div>
+					</div>
+					<div class="condition">
+						<div class="title clearfix">
+							<h2>订单号:</h2>
+							<h3>20201212001</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议地点:</h2>
+							<h3>逸夫楼101</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议标题:</h2>
+							<h3>中国梦</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>开始时间:</h2>
+							<h3>2020-05-27 12:00</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>结束时间:</h2>
+							<h3>2020-05-27 13:40</h3>
+						</div>
+						<div class="common clearfix">
+							<h2>会议人数:</h2>
+							<h3>30</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="shadow">
+			<div class="shadow_content">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<p>加载中...</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

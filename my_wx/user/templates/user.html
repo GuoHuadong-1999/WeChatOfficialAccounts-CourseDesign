@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>UserInformation</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script type="text/javascript" src="/static/js/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="/static/js/set_root.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/user.css">
+	<script type="text/javascript">
+		
+	</script>
+</head>
+<body>
+	<div class="main_wrap">
+		<div class="header">
+			<h1>用户信息</h1>
+		</div>
+		<div class="center_con">
+			<div class="content">
+				<div class="common headimg clearfix">
+					<h2>头像</h2>
+					<img src="{{user['headimgurl']}}">
+				</div>
+				<div class="common nickname clearfix">
+					<h2>昵称</h2>
+					<h3>{{user["nickname"]}}</h3>
+				</div>
+				<div class="common sex clearfix">
+					<h2>性别</h2>
+					<h3>
+						{% if 1 == user["sex"] %}
+							男
+						{% elif 2 == user["sex"] %}
+							女
+						{% else %}
+							未知
+						{% endif %}
+					</h3>
+				</div>
+				<div class="common province clearfix">
+					<h2>省份</h2>
+					<h3>{{user["province"]}}</h3>
+				</div>
+				<div class="common city clearfix">
+					<h2>城市</h2>
+					<h3>{{user["city"]}}</h3>
+				</div>
+				<div class="common country clearfix">
+					<h2>国家</h2>
+					<h3>{{user["country"]}}</h3>
+				</div>
+				<div class="common telephone clearfix">
+					<h2>手机号</h2>
+					<div class="modifiable">
+						<h3>{{ telephone }}</h3>
+						<a href="{{ url_for('app_user.telephone') }}"><img src="/static/img/divert.png"></a>
+					</div>
+				</div>
+				<div class="common email clearfix">
+					<h2>邮箱</h2>
+					<div class="modifiable">
+						<h3>{{ email }}</h3>
+						<a href="{{ url_for('app_user.email') }}"><img src="/static/img/divert.png"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

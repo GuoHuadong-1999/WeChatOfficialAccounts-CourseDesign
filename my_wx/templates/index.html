@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SubscribeConferenceRoom</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+	<script src="/static/js/jquery-3.5.1.js" type="text/javascript"></script>
+	<script src="/static/js/set_root.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".conference_room h3").click(function(){
+				$(".conference_room ul").stop().fadeToggle(500);
+			});
+			$(".conference_room li").click(function() {
+				var val = $(this).text();
+				var index = $(this).attr("val");
+				$(".conference_room h3").text(val);
+				$(".conference_room ul").stop().fadeToggle(500);
+				$("#conference_room_id").val(index);
+			});
+			$("#title").focus(function(event) {
+				$(this).prop("placeholder","");
+			}).blur(function(event) {
+				$(this).prop("placeholder","请输入会议主题");
+			});
+			$("#begin_time").focus(function(event) {
+				$(this).prop("placeholder","");
+			}).blur(function(event) {
+				$(this).prop("placeholder","2020-01-01 01:01:01");
+			});
+			$("#end_time").focus(function(event) {
+				$(this).prop("placeholder","");
+			}).blur(function(event) {
+				$(this).prop("placeholder","2020-01-01 01:01:01");
+			});
+			$("#people_number").focus(function(event) {
+				$(this).prop("placeholder","");
+			}).blur(function(event) {
+				$(this).prop("placeholder","请输入会议人数");
+			});
+			$("#use").focus(function(event) {
+				$(this).prop("placeholder","");
+			}).blur(function(event) {
+				$(this).prop("placeholder","请输入会议用途");
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="main_wrap">
+		<div class="header">
+			<h1>会议室预约</h1>
+		</div>
+		<form method="post" novalidate action="{{ url_for('subscribe') }}">
+			{{ form.csrf_token }}
+			<div class="form_con">
+				<div class="content">
+					<div class="common_input">
+						<label for="title"><h2>会议主题:</h2></label>
+						{{ form.title(placeholder="请输入会议主题") }}
+						{% for msg in form.title.errors %}
+						<div class="error"><h3>{{ msg }}</h3></div>
+						{% endfor %}
+					</div>
+					<div class="common_input">
+						<label for="begin_time"><h2>开始时间:</h2></label>
+						{{ form.begin_time(placeholder="2020-01-01 01:01:01") }}
+						{% for msg in form.begin_time.errors %}
+						<div class="error"><h3>{{ msg }}</h3></div>
+						{% endfor %}
+					</div>
+					<div class="common_input">
+						<label for="end_time"><h2>结束时间:</h2></label>
+						{{ form.end_time(placeholder="2020-01-01 01:01:01") }}
+						{% for msg in form.end_time.errors %}
+						<div class="error"><h3>{{ msg }}</h3></div>
+						{% endfor %}
+					</div>
+					<div class="conference_room_input">
+						<div class="label"><h2>会议地点:</h2></div>
+						<div class="conference_room">
+							<h3>---请选择会议室---</h3>
+							<ul>
+								{% for conference_room in conference_rooms %}
+								<li val="{{ conference_room.id }}"><h4>{{ conference_room.conference_room }}</h4></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+					<div class="common_input">
+						<label for="people_number"><h2>会议人数:</h2></label>
+						{{ form.people_number(placeholder="请输入会议人数") }}
+						{% for msg in form.people_number.errors %}
+						<div class="error"><h3>{{ msg }}</h3></div>
+						{% endfor %}
+					</div>
+					<div class="use_input">
+						<label for="use"><h2>会议用途:</h2></label>
+						{{ form.use(placeholder="请输入会议用途") }}
+					</div>
+					{{ form.conference_room_id }}
+					{{ form.submit(class="submit") }}
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
